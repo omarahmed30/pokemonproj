@@ -45,8 +45,13 @@ class TrainerOmar {
 }
 
 let pokemonPikachu = new Pokemon("pikachu")
-let pokemonPikipek = new Pokemon("pikipek")
 let pokemonPignite = new Pokemon("pignite")
+let pokemonPikipek = new Pokemon("pikipek")
+
+let omar = new TrainerOmar()
+omar.add(pokemonPikachu)
+omar.add(pokemonPignite)
+omar.add(pokemonPikipek)
 
 
 function getImageUrl(pokemon) {
