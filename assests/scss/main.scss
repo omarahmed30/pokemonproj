@@ -1,0 +1,90 @@
+@mixin section-setting($background-color, $height, $margin-bottom, $margin-top) {
+    background-color: $background-color;
+    height: $height;
+    margin-bottom: $margin-bottom;
+    margin-top: $margin-top;
+  }
+
+@mixin text-style($color, $font-size, $text-transform, $text-align) {
+    color: $color;
+    font-size: $font-size;
+    text-transform: $text-transform;
+    text-align: $text-align;
+  }
+
+@mixin display($display, $padding-bottom, $padding-top){
+      display: $display;
+      padding-bottom: $padding-bottom;
+      padding-top: $padding-top;
+  }
+
+h2 { @include text-style(#E5E7E6, 100px, capitalize, center); }
+
+p {
+    @include text-style(rgb(119, 22, 21), 50px, capitalize, center);
+    line-height: 20px;
+}
+
+#section1 { @include section-setting(#312A27, 800px, 0px, 0px); }
+
+#section2 { @include section-setting(#011627, 800px, 0px, 0px); }
+
+#section3 { @include section-setting(#896978, 800px, 0px, 0px); }
+
+#section-one { @include section-setting (" ", "", 0px, 0px); }
+
+#ash-background { @include section-setting (" ", "", 0px, 0px); }
+
+#pikachu-information { @include display(none, 100px, 100px); }
+
+#pignite-information { @include display(none, 100px, 100px); }
+
+#pikipek-information { @include display(none, 100px, 100px); }
+
+img {
+    width: 550px;
+    height: 550px; 
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+    width: 50%;
+}
+
+span {
+    display: flex;
+    justify-content : center;
+}
+
+li { list-style: none; }
+
+ul {
+    display: flex;
+    flex-direction: column;
+}
+
+.parallax {
+    /* The image used */
+    background-image: url("https://collectible506.com/wp-content/uploads/2017/02/pokemon-logo.jpg");
+    /* Full height */
+    height: 800px;
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+  }
+
+  footer {
+    @include text-style(#E5E7E6, 20px, capitalize, center);
+    width: 100%;
+    background-color: #896978; 
+    padding: 30px 0px 30px 0px;
+ }
+
+ .row {
+     margin-bottom: 0px !important;
+ }
+a {
+    font-size: 36px !important;
+}
