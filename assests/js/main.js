@@ -44,80 +44,10 @@ class TrainerOmar {
     }
 }
 
-function callingObjects(pmon) {
-// Creating list of li tag and appending information on them
-    let nameAndImgList = document.createElement("li")
-    let statList = document.createElement("li")
-
-// Appending name to the nameAndImgList li
-    let name = document.createElement("h2")
-    name.innerHTML =  pmon.name
-    nameAndImgList.appendChild(name)
-
-// Calling image function to get the image url and appending it to li
-    let image = getImageUrl(pmon)
-    nameAndImgList.appendChild(image)
-
-// HP, Attack, Defense and Abilites information being retrieved and append to statList li
-    let hp = document.createElement("p")
-    hp.innerHTML =  " Hit point: " + pmon.stats[5].base_stat
-    statList.appendChild(hp)
-
-    let attack = document.createElement("p")
-    attack.innerHTML = " Attack power: " + pmon.stats[4].base_stat
-    statList.appendChild(attack)
-
-    let defense = document.createElement("p")
-    defense.innerHTML = " Defense power: " + pmon.stats[3].base_stat
-    statList.appendChild(defense)
-
-    let pokemonAbilities = getAbilities(pmon)
-    let abilities = document.createElement("p")
-    abilities.innerHTML = " Abilities are: " +  pokemonAbilities[0] + ", " + pokemonAbilities[1]   
-     //[pmon.abilities[0].ability.name + ",  " + pmon.abilities[1].ability.name]
-    statList.appendChild(abilities)
-
-// Creating  buttons to display all the information
-    let statsButton = document.createElement("button")
-    statsButton.className = " waves-effect waves-light btn choose-btn center-align  "
-    statsButton.innerHTML = " Stats "
-
-    statsButton.addEventListener("click", function(){
-        displayStatsOfPokemon("pikachu-information")
-    }) 
-
-    statsButton.addEventListener("click", function(){
-        displayStatsOfPokemon("pignite-information")
-    }) 
-
-    statsButton.addEventListener("click", function(){
-        displayStatsOfPokemon("pikipek-information")
-    }) 
-
-    
-
-    let statsButtonSpan = document.createElement("span")
-    statsButtonSpan.appendChild(statsButton)
-
-    nameAndImgList.appendChild(statsButtonSpan)
-
-// Maintaing a background with specific Pookemon regardles of who's information return first from the API    
-    maintainBackgroundForEachPokemon(pmon, nameAndImgList, statList)
-}
-
-function additionalPokemonInformation(pokemon){
-    
-}
-
 let pokemonPikachu = new Pokemon("pikachu")
 let pokemonPikipek = new Pokemon("pikipek")
 let pokemonPignite = new Pokemon("pignite")
 
-
-let omar = new TrainerOmar()
-
-omar.add(pokemonPikachu)
-omar.add(pokemonPignite)
 
 function getImageUrl(pokemon) {
     if (pokemon.id < 100) {
@@ -126,11 +56,6 @@ function getImageUrl(pokemon) {
     let img = document.createElement("img")
     img.src = POKEMON_IMAGE_URL + pokemon.id + ".png"
     return img
-}
-
-function creatingButton(numberOfPokemonObject){
-    
-    
 }
 
 function displayStatsOfPokemon(id) {
@@ -168,3 +93,61 @@ function getAbilities(pokemon){
      )
      return abilitiesArray
  }
+
+ function callingObjects(pmon) {
+// Creating list of li tag and appending information on them
+    let nameAndImgList = document.createElement("li")
+    let statList = document.createElement("li")
+
+// Appending name to the nameAndImgList li
+    let name = document.createElement("h2")
+    name.innerHTML =  pmon.name
+    nameAndImgList.appendChild(name)
+
+// Calling image function to get the image url and appending it to li
+    let image = getImageUrl(pmon)
+    nameAndImgList.appendChild(image)
+
+// HP, Attack, Defense and Abilites information being retrieved and append to statList li
+    let hp = document.createElement("p")
+    hp.innerHTML =  " Hit point: " + pmon.stats[5].base_stat
+    statList.appendChild(hp)
+
+    let attack = document.createElement("p")
+    attack.innerHTML = " Attack power: " + pmon.stats[4].base_stat
+    statList.appendChild(attack)
+
+    let defense = document.createElement("p")
+    defense.innerHTML = " Defense power: " + pmon.stats[3].base_stat
+    statList.appendChild(defense)
+
+    let pokemonAbilities = getAbilities(pmon)
+    let abilities = document.createElement("p")
+    abilities.innerHTML = " Abilities are: " +  pokemonAbilities[0] + ", " + pokemonAbilities[1]   
+//[pmon.abilities[0].ability.name + ",  " + pmon.abilities[1].ability.name]
+    statList.appendChild(abilities)
+
+// Creating  buttons to display all the information
+    let statsButton = document.createElement("button")
+    statsButton.className = " waves-effect waves-light btn choose-btn center-align  "
+    statsButton.innerHTML = " Stats "
+
+    statsButton.addEventListener("click", function(){
+        displayStatsOfPokemon("pikachu-information")
+    }) 
+
+    statsButton.addEventListener("click", function(){
+        displayStatsOfPokemon("pignite-information")
+    }) 
+
+    statsButton.addEventListener("click", function(){
+        displayStatsOfPokemon("pikipek-information")
+    }) 
+
+    let statsButtonSpan = document.createElement("span")
+    statsButtonSpan.appendChild(statsButton)
+    nameAndImgList.appendChild(statsButtonSpan)
+
+// Maintaing a background with specific Pookemon regardles of who's information return first from the API    
+    maintainBackgroundForEachPokemon(pmon, nameAndImgList, statList)
+    }
